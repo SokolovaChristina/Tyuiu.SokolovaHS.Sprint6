@@ -6,13 +6,13 @@ namespace Tyuiu.SokolovaHS.Sprint6.Task1.V12
 {
     public partial class FormMain : Form
     {
-        private DataService ds = new DataService();
+         
 
         public FormMain()
         {
             InitializeComponent();
         }
-
+        DataService ds = new DataService();
         private void ButtonDone_HSH_Click(object sender, EventArgs e)
         {
             try
