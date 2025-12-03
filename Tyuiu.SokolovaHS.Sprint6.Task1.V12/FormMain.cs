@@ -22,13 +22,13 @@ namespace Tyuiu.SokolovaHS.Sprint6.Task1.V12
                 int stopStep = Convert.ToInt32(buttonStopStep_HSH.Text);
 
                 int len = ds.GetMassFunction(startStep, stopStep).Length;
-                // Получаем массив значений
+                
                 double[] valueArray = ds.GetMassFunction(startStep, stopStep);
 
-                // Очищаем поле результата
+                
                 buttonResult_HSH.Text = "";
 
-                // Строим таблицу
+                
                 buttonResult_HSH.AppendText("+----------+----------+" + Environment.NewLine);
                 buttonResult_HSH.AppendText("|    X     |   f(x)   |" + Environment.NewLine);
                 buttonResult_HSH.AppendText("+----------+----------+" + Environment.NewLine);

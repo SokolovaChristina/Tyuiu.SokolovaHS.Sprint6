@@ -10,13 +10,13 @@ namespace Tyuiu.SokolovaIS.Sprint6.Task1.V12.Test
         {
             double[] result = ds.GetMassFunction(-5, 5);
 
-            // Проверяем длину массива
+            
             Assert.Equals(11, result.Length);
 
-            // Проверяем несколько ключевых значений
-            Assert.Equals(-8.72, result[0]);   // x=-5
-            Assert.Equals(0.00, result[7]);    // x=2 (деление на ноль)
-            Assert.Equals(10.58, result[10]);  // x=5
+            
+            Assert.Equals(-8.72, result[0]);   
+            Assert.Equals(0.00, result[7]);    
+            Assert.Equals(10.58, result[10]);  
         }
 
         
