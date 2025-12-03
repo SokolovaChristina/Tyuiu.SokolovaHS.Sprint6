@@ -8,38 +8,23 @@ namespace Tyuiu.SokolovaHS.Sprint6.Task3.V17.Lib
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
 
-            // Создаем копию матрицы, чтобы не изменять оригинал
+            // Создаем копию матрицы
             int[,] resultMatrix = (int[,])matrix.Clone();
 
-            // Используем стабильную сортировку (сортировка вставками)
-            for (int i = 1; i < rows; i++)
+            // Собираем значения 4-го столбца
+            int[] fourthColumn = new int[rows];
+            for (int i = 0; i < rows; i++)
             {
-                int[] currentRow = new int[cols];
-                int currentValue = resultMatrix[i, 3];
+                fourthColumn[i] = resultMatrix[i, 3];
+            }
 
-                // Копируем текущую строку
-                for (int col = 0; col < cols; col++)
-                {
-                    currentRow[col] = resultMatrix[i, col];
-                }
+            // Сортируем только значения 4-го столбца (без изменения строк)
+            Array.Sort(fourthColumn);
 
-                int j = i - 1;
-
-                // Сдвигаем строки с большими значениями вправо
-                while (j >= 0 && resultMatrix[j, 3] > currentValue)
-                {
-                    for (int col = 0; col < cols; col++)
-                    {
-                        resultMatrix[j + 1, col] = resultMatrix[j, col];
-                    }
-                    j--;
-                }
-
-                // Вставляем текущую строку на правильное место
-                for (int col = 0; col < cols; col++)
-                {
-                    resultMatrix[j + 1, col] = currentRow[col];
-                }
+            // Записываем отсортированные значения обратно в 4-й столбец
+            for (int i = 0; i < rows; i++)
+            {
+                resultMatrix[i, 3] = fourthColumn[i];
             }
 
             return resultMatrix;
