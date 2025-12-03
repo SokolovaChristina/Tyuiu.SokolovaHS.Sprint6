@@ -55,11 +55,7 @@ namespace Tyuiu.SokolovaHS.Sprint6.Task1.V12
                 MessageBox.Show("Введите целые числа в поля X",
                               "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка: {ex.Message}",
-                              "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
     }
 }
