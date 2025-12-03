@@ -21,14 +21,7 @@ namespace Tyuiu.SokolovaHS.Sprint6.Task1.V12
                 int startStep = Convert.ToInt32(buttonStartStep_HSH.Text);
                 int stopStep = Convert.ToInt32(buttonStopStep_HSH.Text);
 
-                // Проверка диапазона
-                if (startStep > stopStep)
-                {
-                    MessageBox.Show("Начальное значение не может быть больше конечного",
-                                  "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
+                int len = ds.GetMassFunction(startStep, stopStep).Length;
                 // Получаем массив значений
                 double[] valueArray = ds.GetMassFunction(startStep, stopStep);
 
@@ -40,12 +33,12 @@ namespace Tyuiu.SokolovaHS.Sprint6.Task1.V12
                 buttonResult_HSH.AppendText("|    X     |   f(x)   |" + Environment.NewLine);
                 buttonResult_HSH.AppendText("+----------+----------+" + Environment.NewLine);
 
-                int currentX = startStep;
-                for (int i = 0; i < valueArray.Length; i++)
+                
+                for (int i = 0; i <= len - 1; i++)
                 {
-                    string strLine = String.Format("| {0,5} | {1,8:F2} |", currentX, valueArray[i]);
+                    string strLine = String.Format("|{0,5:d}    |  {1,5:f2}   |", startStep, valueArray[i]);
                     buttonResult_HSH.AppendText(strLine + Environment.NewLine);
-                    currentX++;
+                    startStep++;
                 }
 
                 buttonResult_HSH.AppendText("+----------+----------+" + Environment.NewLine);
